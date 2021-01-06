@@ -6,6 +6,7 @@ RUN rm -f /etc/apt/apt.conf.d/docker-clean; echo 'Binary::apt::APT::Keep-Downloa
 
 RUN --mount=type=cache,target=/var/cache/apt --mount=type=cache,target=/var/lib/apt \
     curl -sL https://deb.nodesource.com/setup_12.x | bash - && \
+    curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python - && \
     apt-get update && \
     apt-get upgrade -y && \
     apt-get install -y --no-install-recommends \
